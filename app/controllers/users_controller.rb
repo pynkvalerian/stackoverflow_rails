@@ -16,6 +16,11 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def index
+		@user = User.find(session[:user_id])
+		@questions = Question.all
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:name, :email, :password, :password_confirmation)

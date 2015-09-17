@@ -2,10 +2,10 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function(){
-	$('form.new_comment').hide();
+	$('form.new_comment').toggle();
 
 	$('a.new_comment').on('click', function(e){
 		e.preventDefault();
-		$('form.new_comment').show();
+		$('form.new_comment').toggle();
 	});
 });

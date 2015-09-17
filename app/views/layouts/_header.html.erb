@@ -1,6 +1,7 @@
 <header class="navbar navbar-default navbar-inverse">
 		<div class="container-fluid">
 			<%= link_to "StackOverflow Rails", root_path , id: "logo" %>
+            <p>Hello, <%= User.find(session[:user_id]).name %></p>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", root_path %></li>

@@ -1,0 +1,5 @@
+<div class="questions" id="question-<%= question.id %>">
+	<h5><%= link_to question.description, question %></h5>
+	<dd>by <%= link_to question.user.name, question.user %> 
+		posted on <%= question.created_at %></dd>
+</div>

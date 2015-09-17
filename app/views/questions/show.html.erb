@@ -3,16 +3,23 @@
 <div class="container">
 	<!-- QUESTION DETAILS -->
 	<h1><%= @question.title %></h1>
-	<p><%= @question.description %></p>
-	<dd>by <%= link_to @question.user.name, @question.user %> posted on <%= @question.created_at %></dd>
-	
-	<div class="comments">
-		<%= render @q_comments %>
+	<div class="container">
+		
+		<%= render 'questions/voting_bar', :type => @question %>
+
+		<div class="second">
+			<p><%= @question.description %></p>
+			<dd>by <%= link_to @question.user.name, @question.user %> posted on <%= @question.created_at %></dd>
+
+			<div class="comments">
+				<%= render @q_comments %>
+			</div>
+
+			<%= link_to "Add a comment", new_comment_path, class: "new_comment" %>
+			<%= render 'comments/addcomment', :type => @question %>
+		</div>
 	</div>
-
-	<%= link_to "Add a comment", new_comment_path, class: "new_comment" %>
-	<%= render 'comments/addcomment', :type => @question %>
-
+	
 	<!-- ANSWER FORM -->
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">

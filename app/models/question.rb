@@ -5,4 +5,5 @@ class Question < ActiveRecord::Base
 	has_many :votes, :as => :votable
 
 	validates :title, :description, :user_id, presence: true
+
 end

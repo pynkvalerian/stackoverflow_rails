@@ -25,6 +25,8 @@ class QuestionsController < ApplicationController
 		@comment = Comment.new
 		@q_comments = @question.comments
 		@a_comments = @answer.comments
+		@q_votes = @question.votes
+		@a_votes = @answer.votes
 	end
 
 	private 
