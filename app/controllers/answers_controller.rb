@@ -8,7 +8,6 @@ class AnswersController < ApplicationController
 			render 'login'
 		else
 			@answer = Answer.new(answer_params)
-			@answer.question_id = session[:question_id]
 			@answer.user_id = session[:user_id]
 			if @answer.save
 				redirect_to @answer.question
@@ -20,7 +19,7 @@ class AnswersController < ApplicationController
 
 	private
 	def answer_params
-		params.require(:answer).permit(:description)
+		params.require(:answer).permit(:description, :question_id)
 	end
 
 end

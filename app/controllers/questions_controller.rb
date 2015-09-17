@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
 			@question = Question.new(question_params)
 			@question.user_id = session[:user_id]
 			if @question.save
-				current_question(@question.id)
 				redirect_to @question
 			else 
 				render 'new'
@@ -19,8 +18,13 @@ class QuestionsController < ApplicationController
 	end
 
 	def show
+		session[:question_id] = params[:id]
 		@question = Question.find(params[:id])
 		@answer = Answer.new
+		@answers = @question.answers
+		@comment = Comment.new
+		@q_comments = @question.comments
+		@a_comments = @answer.comments
 	end
 
 	private 
@@ -28,7 +32,4 @@ class QuestionsController < ApplicationController
 		params.require(:question).permit(:title, :description)
 	end
 
-	def current_question(session_id)
-		session[:question_id] = session_id
-	end
 end

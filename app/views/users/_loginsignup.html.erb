@@ -1,0 +1,4 @@
+<% if session[:user_id].nil? %>
+	<p> New user? <%= link_to "Sign up", signup_path %></p>
+	<p> Existing user? <%= link_to "Log in", login_path %></p>
+<% end %>
