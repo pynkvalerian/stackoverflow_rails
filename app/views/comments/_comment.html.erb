@@ -1,5 +1,5 @@
 <ul id="comment-<%= comment.id %>">
 	<dt><%= comment.description %></dt>
 	<dd>by <%= link_to comment.user.name, comment.user %> 
-		posted on <%= comment.created_at %></dd>
+		| posted <%= time_ago_in_words(comment.created_at) %> ago</dd>
 </ul>

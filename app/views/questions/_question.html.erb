@@ -1,5 +1,5 @@
 <div class="questions" id="question-<%= question.id %>">
 	<h5><%= link_to question.description, question %></h5>
 	<dd>by <%= link_to question.user.name, question.user %> 
-		posted on <%= question.created_at %></dd>
+		| posted <%= time_ago_in_words(question.created_at) %> ago</dd>
 </div>
