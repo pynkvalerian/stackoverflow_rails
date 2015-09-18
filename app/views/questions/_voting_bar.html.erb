@@ -1,5 +1,7 @@
 <div class="first">
-	<%= link_to image_tag("thumbsup.png", :alt => "upvote"), vote_path %>
-	<p class="num_votes"><%= type.votes.size %></p>
-	<%= link_to image_tag("thumbsdown.png", :alt => "downvote"), vote_path %>
+	<%= link_to image_tag("thumbsup.png", :alt => "upvote", :class => "up", :value => type.class, :id => type.id ) %>
+	<p class="num_votes <%= type.class %>" value="<%= type.class %>" id="<%= type.id %>">
+		<%= type.votes.size %>
+	</p>
+	<%= link_to image_tag("thumbsdown.png", :alt => "downvote", :class => "down", :value => type.class, :id => type.id), vote_path %>
 </div>
